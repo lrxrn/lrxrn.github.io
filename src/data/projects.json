@@ -47,7 +47,7 @@
     "id": 6,
     "title": "TA-Roster",
     "description": "Automated TA duty roster parser. Downloads Excel rosters from SharePoint using Selenium, parses to structured JSON, and maintains a rolling 5-week history with GitHub Actions automation.",
-    "link": "https://github.com/lrxrn/TA-Roster",
+    "link": null,
     "image": null,
     "tags": ["JavaScript", "Selenium", "GitHub Actions"]
   },
