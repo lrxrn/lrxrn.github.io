@@ -1,0 +1,78 @@
+[
+  {
+    "id": 1,
+    "title": "POS System",
+    "description": "A modern point-of-sale system built with Next.js and TypeScript. Created for a close relative to help manage their retail business operations efficiently.",
+    "link": null,
+    "image": null,
+    "featured": true,
+    "tags": ["Next.js", "TypeScript", "Tailwind CSS"]
+  },
+  {
+    "id": 2,
+    "title": "Portfolio Website",
+    "description": "This website! Built with Svelte and Vite, featuring an animated halftone background, matrix-style name animation, and light/dark mode toggle.",
+    "link": null,
+    "image": null,
+    "highlight": true,
+    "tags": ["Svelte", "Vite", "Tailwind CSS"]
+  },
+  {
+    "id": 3,
+    "title": "Network for Optimized Digital Resources",
+    "description": "A platform for Technical Assistants @ APU. Features duty email generator, shift finder, and mini tools. Built with Next.js, TypeScript, Clerk auth, and Supabase. Evolved from a simple vanilla JS page to a full-stack solution.",
+    "link": null,
+    "image": "/projects/nodr.png",
+    "featured": true,
+    "tags": ["Next.js", "TypeScript", "Supabase", "Clerk"]
+  },
+  {
+    "id": 4,
+    "title": "NODR API",
+    "description": "Backend API for NODR platform, deployed as a Cloudflare Worker for edge performance and reliability.",
+    "link": null,
+    "image": null,
+    "tags": ["Cloudflare Workers", "TypeScript"]
+  },
+  {
+    "id": 5,
+    "title": "SnipeIT Kiosk",
+    "description": "Self-service asset checkout system for TA Admin. Users scan RFID/NFC cards and barcodes to check out equipment. Frontend in Svelte, API on Cloudflare Workers, data in Cloudflare KV. This project sparked my interest in Svelte!",
+    "link": null,
+    "image": "/projects/snipeit-kiosk.png",
+    "featured": true,
+    "tags": ["Svelte", "Cloudflare Workers", "KV Storage"]
+  },
+  {
+    "id": 6,
+    "title": "TA-Roster",
+    "description": "Automated TA duty roster parser. Downloads Excel rosters from SharePoint using Selenium, parses to structured JSON, and maintains a rolling 5-week history with GitHub Actions automation.",
+    "link": "https://github.com/lrxrn/TA-Roster",
+    "image": null,
+    "tags": ["JavaScript", "Selenium", "GitHub Actions"]
+  },
+  {
+    "id": 7,
+    "title": "Redir (discontinued)",
+    "description": "Link shortener project created as a secret gift for a coworker. Designed to work with an NFC Keychain (Ntag 216). My first exploration into Next.js!",
+    "link": null,
+    "image": null,
+    "tags": ["Next.js", "NFC"]
+  },
+  {
+    "id": 8,
+    "title": "Nowify Player",
+    "description": "Forked from Nowify — displays my current Spotify listening activity with a permanent public URL. Custom styling and always-on visibility for anyone curious about my music taste.",
+    "link": "https://np.nodr.me",
+    "image": null,
+    "tags": ["Spotify API", "JavaScript"]
+  },
+  {
+    "id": 9,
+    "title": "Discord Bots (discontinued)",
+    "description": "Various Discord bots built with JavaScript since 2022. Explored bot development, Discord.js, and server automation.",
+    "link": null,
+    "image": null,
+    "tags": ["Discord.js", "Node.js"]
+  }
+]
