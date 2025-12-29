@@ -16,7 +16,7 @@
   });
   
   const names = ['MEESUM', 'MIKKO', 'LRXRN'];
-  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
   // Tech stack with theme-aware colors
   const techStackInitial = [
@@ -86,14 +86,24 @@
     const maxLength = Math.max(currentName.length, targetName.length);
     
     let iterations = 0;
-    const maxIterations = 8;
+    const maxIterations = 10;
+    
+    // Create array of indices sorted by distance from center (center first)
+    const centerIndex = (maxLength - 1) / 2;
+    const indices = Array.from({ length: maxLength }, (_, i) => i);
+    indices.sort((a, b) => Math.abs(a - centerIndex) - Math.abs(b - centerIndex));
     
     const interval = setInterval(() => {
       iterations++;
       let newText = '';
       
       for (let i = 0; i < maxLength; i++) {
-        const charSettlePoint = (i / maxLength) * maxIterations;
+        // Find how far from center this index is (0 = center, higher = edges)
+        const distanceFromCenter = Math.abs(i - centerIndex);
+        const maxDistance = centerIndex;
+        // Settle center chars first, edges last
+        const charSettlePoint = (distanceFromCenter / maxDistance) * maxIterations * 0.8;
+        
         if (iterations > charSettlePoint) {
           newText += targetName[i] || '';
         } else {
@@ -109,7 +119,7 @@
         currentName = targetName;
         isAnimating = false;
       }
-    }, 30);
+    }, 35);
   }
 
   function scrollToSection(sectionId) {
