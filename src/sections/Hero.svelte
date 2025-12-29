@@ -15,7 +15,7 @@
     currentTheme = value;
   });
   
-  const names = ['MEESUM', 'MIKKO', 'MEEKO', 'LRXRN'];
+  const names = ['MEESUM', 'MIKKO', 'LRXRN'];
   const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 
   // Tech stack with theme-aware colors
