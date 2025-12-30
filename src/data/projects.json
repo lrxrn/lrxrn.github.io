@@ -36,15 +36,6 @@
   },
   {
     "id": 5,
-    "title": "SnipeIT Kiosk",
-    "description": "Self-service asset checkout system for TA Admin. Users scan RFID/NFC cards and barcodes to check out equipment. Frontend in Svelte, API on Cloudflare Workers, data in Cloudflare KV. This project sparked my interest in Svelte!",
-    "link": null,
-    "image": "/projects/snipeit-kiosk.png",
-    "featured": true,
-    "tags": ["Svelte", "Cloudflare Workers", "KV Storage"]
-  },
-  {
-    "id": 6,
     "title": "TA-Roster",
     "description": "Automated TA duty roster parser. Downloads Excel rosters from SharePoint using Selenium, parses to structured JSON, and maintains a rolling 5-week history with GitHub Actions automation.",
     "link": null,
@@ -52,7 +43,7 @@
     "tags": ["JavaScript", "Selenium", "GitHub Actions"]
   },
   {
-    "id": 7,
+    "id": 6,
     "title": "Redir (discontinued)",
     "description": "Link shortener project created as a secret gift for a coworker. Designed to work with an NFC Keychain (Ntag 216). My first exploration into Next.js!",
     "link": null,
@@ -60,7 +51,7 @@
     "tags": ["Next.js", "NFC"]
   },
   {
-    "id": 8,
+    "id": 7,
     "title": "Nowify Player",
     "description": "Forked from Nowify — displays my current Spotify listening activity with a permanent public URL. Custom styling and always-on visibility for anyone curious about my music taste.",
     "link": "https://np.nodr.me",
@@ -68,7 +59,7 @@
     "tags": ["Spotify API", "JavaScript"]
   },
   {
-    "id": 9,
+    "id": 8,
     "title": "Discord Bots (discontinued)",
     "description": "Various Discord bots built with JavaScript since 2022. Explored bot development, Discord.js, and server automation.",
     "link": null,
