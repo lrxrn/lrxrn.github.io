@@ -11,7 +11,7 @@
   {
     "id": 2,
     "title": "Portfolio Website",
-    "description": "This website! Built with Svelte and Vite, featuring an animated halftone background, matrix-style name animation, and light/dark mode toggle.",
+    "description": "This website! Built with Svelte and Vite, featuring an animated halftone background, matrix-style name animation, light/dark mode toggle (find where the switch is!), and Spotify stats integration.",
     "link": null,
     "image": null,
     "highlight": true,
