@@ -1,6 +1,6 @@
 <script>
   import { theme, toggleTheme } from '../stores/theme.js';
-  import { Menu, X, QrCode, Share2, Copy, Check } from 'lucide-svelte';
+  import { Menu, X, Pizza, Share2, Copy, Check } from 'lucide-svelte';
   
   let isMenuOpen = false;
   let activeSection = 'home';
@@ -96,9 +96,9 @@
           <button
             onclick={openQrPopup}
             class="p-1.5 rounded-lg nav-qr-btn transition-colors"
-            title="Show QR Code"
+            title="What's this?"
           >
-            <QrCode size={18} />
+            <Pizza size={18} />
           </button>
           <button
             onclick={handleLogoClick}
