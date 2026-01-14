@@ -56,7 +56,7 @@
 <style>
   :global(:not(.light)) .card-bg { @apply bg-gray-900/50; }
   :global(:not(.light)) .card-border { @apply border border-gray-800/50; }
-  :global(:not(.light)) .card-border:hover, :global(:not(.light)) .card-border-hover { border-color: rgba(239, 68, 68, 0.3); }
+  :global(:not(.light)) .card-border:hover { border-color: rgba(239, 68, 68, 0.3); }
   :global(:not(.light)) .card-title { @apply text-white; }
   :global(:not(.light)) .group:hover .card-title { @apply text-red-400; }
   :global(:not(.light)) .card-description { @apply text-gray-400; }
@@ -66,7 +66,7 @@
 
   :global(.light) .card-bg { @apply bg-gray-100/50; }
   :global(.light) .card-border { @apply border border-gray-200/50; }
-  :global(.light) .card-border:hover, :global(.light) .card-border-hover { border-color: rgba(220, 38, 38, 0.3); }
+  :global(.light) .card-border:hover { border-color: rgba(220, 38, 38, 0.3); }
   :global(.light) .card-title { @apply text-black; }
   :global(.light) .group:hover .card-title { @apply text-red-600; }
   :global(.light) .card-description { @apply text-gray-600; }

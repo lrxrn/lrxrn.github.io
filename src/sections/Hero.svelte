@@ -143,7 +143,6 @@
     <div class="mb-6 overflow-hidden">
       <h1 
         class="font-display font-black tracking-tight hero-name select-none hero-name-animate {isVisible ? 'hero-name-visible' : ''}"
-        role="heading"
         aria-label={currentName}
       >
         {displayText}

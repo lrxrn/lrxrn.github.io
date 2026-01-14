@@ -165,6 +165,8 @@
     onclick={handleOverlayClick}
     role="dialog"
     aria-modal="true"
+    tabindex="-1"
+    onkeydown={(e) => { if (e.key === 'Escape') closeQrPopup(); }}
   >
     <div class="qr-popup rounded-3xl p-8 max-w-sm w-full text-center animate-fade-in">
       <!-- Close button -->

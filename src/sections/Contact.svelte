@@ -200,14 +200,14 @@
   :global(:not(.light)) .contact-card { @apply bg-gray-900/50 border border-gray-800/50; }
   :global(:not(.light)) .contact-border { @apply border-gray-800; }
   :global(:not(.light)) .contact-avatar { @apply bg-gray-800; }
-  :global(:not(.light)) .contact-avatar-icon { @apply text-gray-500; }
+  :global(:not(.light)) :global(.contact-avatar-icon) { @apply text-gray-500; }
   :global(:not(.light)) .contact-card-title { @apply text-white; }
   :global(:not(.light)) .contact-bio { @apply text-gray-400; }
   :global(:not(.light)) .contact-hand { @apply text-gray-600; }
   :global(:not(.light)) .contact-cta { @apply bg-white text-black hover:bg-red-500 hover:text-white hover:shadow-red-500/25; }
   :global(:not(.light)) .contact-social { @apply bg-gray-800 border border-gray-700 hover:bg-red-500/20 hover:border-red-500/50; }
-  :global(:not(.light)) .contact-social-icon { @apply text-gray-400; }
-  :global(:not(.light)) .contact-social:hover .contact-social-icon { @apply text-red-400; }
+  :global(:not(.light)) :global(.contact-social-icon) { @apply text-gray-400; }
+  :global(:not(.light)) .contact-social:hover :global(.contact-social-icon) { @apply text-red-400; }
   :global(:not(.light)) .social-pill { @apply bg-gray-800 border border-gray-700 text-gray-400; }
   :global(:not(.light)) .footer-glass { @apply bg-white/5 border border-white/10 text-gray-400; }
 
@@ -217,14 +217,14 @@
   :global(.light) .contact-card { @apply bg-gray-100/50 border border-gray-200/50; }
   :global(.light) .contact-border { @apply border-gray-200; }
   :global(.light) .contact-avatar { @apply bg-gray-200; }
-  :global(.light) .contact-avatar-icon { @apply text-gray-400; }
+  :global(.light) :global(.contact-avatar-icon) { @apply text-gray-400; }
   :global(.light) .contact-card-title { @apply text-black; }
   :global(.light) .contact-bio { @apply text-gray-600; }
   :global(.light) .contact-hand { @apply text-gray-500; }
   :global(.light) .contact-cta { @apply bg-black text-white hover:bg-red-600 hover:shadow-red-600/25; }
   :global(.light) .contact-social { @apply bg-white border border-gray-200 hover:bg-red-500/10 hover:border-red-500/50; }
-  :global(.light) .contact-social-icon { @apply text-gray-600; }
-  :global(.light) .contact-social:hover .contact-social-icon { @apply text-red-600; }
+  :global(.light) :global(.contact-social-icon) { @apply text-gray-600; }
+  :global(.light) .contact-social:hover :global(.contact-social-icon) { @apply text-red-600; }
   :global(.light) .social-pill { @apply bg-white border border-gray-200 text-black; }
   :global(.light) .footer-glass { @apply bg-black/5 border border-black/10 text-gray-600; }
 </style>
