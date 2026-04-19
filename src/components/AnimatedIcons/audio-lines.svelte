@@ -1,21 +1,19 @@
-<script>
-	/**
-	 * @typedef {Object} Props
-	 * @property {string} [color]
-	 * @property {number} [size]
-	 * @property {number} [strokeWidth]
-	 * @property {boolean} [isHovered]
-	 * @property {string} [class]
-	 */
+<script lang="ts">
+	interface IconProps {
+		color?: string;
+		size?: number;
+		strokeWidth?: number;
+		animate?: boolean;
+		class?: string;
+	}
 
-	/** @type {Props} */
 	let {
 		color = 'currentColor',
 		size = 24,
 		strokeWidth = 2,
-		isHovered = false,
+		animate = false,
 		class: className = ''
-	} = $props();
+	}: IconProps = $props();
 
 	let line1Y1 = $state(10);
 	let line1Y2 = $state(13);
@@ -30,10 +28,17 @@
 	let line6Y1 = $state(10);
 	let line6Y2 = $state(13);
 
-	let animationFrameId = $state(null);
-	let startTime = $state(null);
+	let animationFrameId = $state<number | null>(null);
+	let startTime = $state<number | null>(null);
 	let isAnimatingBack = $state(false);
-	let startPositions = $state(null);
+	let startPositions = $state<{
+		line1: { y1: number; y2: number };
+		line2: { y1: number; y2: number };
+		line3: { y1: number; y2: number };
+		line4: { y1: number; y2: number };
+		line5: { y1: number; y2: number };
+		line6: { y1: number; y2: number };
+	} | null>(null);
 
 	const originalPositions = {
 		line1: { y1: 10, y2: 13 },
@@ -90,11 +95,14 @@
 		{ y1: 10, y2: 13 }
 	];
 
-	function easeOutCubic(t) {
+	function easeOutCubic(t: number): number {
 		return 1 - Math.pow(1 - t, 3);
 	}
 
-	function interpolateKeyframes(keyframes, progress) {
+	function interpolateKeyframes(
+		keyframes: Array<{ y1: number; y2: number }>,
+		progress: number
+	): { y1: number; y2: number } {
 		const totalFrames = keyframes.length - 1;
 		const frameIndex = progress * totalFrames;
 		const frame = Math.floor(frameIndex);
@@ -110,7 +118,7 @@
 		};
 	}
 
-	function animate(timestamp) {
+	function animateFrame(timestamp: number): void {
 		if (!startTime) startTime = timestamp;
 		const elapsed = (timestamp - startTime) / 1000;
 
@@ -157,7 +165,7 @@
 				(originalPositions.line6.y2 - startPositions.line6.y2) * easedProgress;
 
 			if (progress < 1) {
-				animationFrameId = requestAnimationFrame(animate);
+				animationFrameId = requestAnimationFrame(animateFrame);
 			} else {
 				line1Y1 = originalPositions.line1.y1;
 				line1Y2 = originalPositions.line1.y2;
@@ -203,21 +211,21 @@
 			line6Y1 = line6.y1;
 			line6Y2 = line6.y2;
 
-			if (isHovered) {
-				animationFrameId = requestAnimationFrame(animate);
+			if (animate) {
+				animationFrameId = requestAnimationFrame(animateFrame);
 			}
 		}
 	}
 
 	function handleMouseEnter() {
-		isHovered = true;
+		animate = true;
 		isAnimatingBack = false;
 		startTime = null;
-		animationFrameId = requestAnimationFrame(animate);
+		animationFrameId = requestAnimationFrame(animateFrame);
 	}
 
 	function handleMouseLeave() {
-		isHovered = false;
+		animate = false;
 		startPositions = {
 			line1: { y1: line1Y1, y2: line1Y2 },
 			line2: { y1: line2Y1, y2: line2Y2 },
@@ -229,7 +237,7 @@
 		isAnimatingBack = true;
 		startTime = null;
 		if (!animationFrameId) {
-			animationFrameId = requestAnimationFrame(animate);
+			animationFrameId = requestAnimationFrame(animateFrame);
 		}
 	}
 </script>
@@ -252,7 +260,7 @@
 		stroke-linecap="round"
 		stroke-linejoin="round"
 		class="audio-lines-icon"
-		class:animate={isHovered}
+		class:animate
 	>
 		<line x1="2" y1={line1Y1} x2="2" y2={line1Y2} />
 		<line x1="6" y1={line2Y1} x2="6" y2={line2Y2} />

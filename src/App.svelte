@@ -1,7 +1,7 @@
 <script>
   import HalftoneBackground from './components/HalftoneBackground.svelte';
   import Navigation from './components/Navigation.svelte';
-  import NowPlaying from './components/NowPlaying.svelte';
+  import WAIU from './components/WAIU.svelte';
   import Hero from './sections/Hero.svelte';
   import Projects from './sections/Projects.svelte';
   import Contact from './sections/Contact.svelte';
@@ -9,7 +9,7 @@
 
 <HalftoneBackground />
 <Navigation />
-<NowPlaying />
+<WAIU />
 
 <main class="relative z-10">
   <Hero />
