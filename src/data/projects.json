@@ -1,69 +1,15 @@
 [
-  {
-    "id": 1,
-    "title": "POS System",
-    "description": "A modern point-of-sale system built with Next.js and TypeScript. Created for a close relative to help manage their retail business operations efficiently.",
-    "link": null,
-    "image": null,
-    "featured": true,
-    "tags": ["Next.js", "TypeScript", "Tailwind CSS"]
-  },
-  {
-    "id": 2,
-    "title": "Portfolio Website",
-    "description": "This website! Built with Svelte and Vite, featuring an animated halftone background, matrix-style name animation, light/dark mode toggle (find where the switch is!), and Spotify stats integration.",
-    "link": null,
-    "image": null,
-    "highlight": true,
-    "tags": ["Svelte", "Vite", "Tailwind CSS"]
-  },
-  {
-    "id": 3,
-    "title": "Network for Optimized Digital Resources",
-    "description": "A platform for Technical Assistants @ APU. Features duty email generator, shift finder, and mini tools. Built with Next.js, TypeScript, Clerk auth, and Supabase. Evolved from a simple vanilla JS page to a full-stack solution.",
-    "link": null,
-    "image": "/projects/nodr.png",
-    "featured": true,
-    "tags": ["Next.js", "TypeScript", "Supabase", "Clerk"]
-  },
-  {
-    "id": 4,
-    "title": "NODR API",
-    "description": "Backend API for NODR platform, deployed as a Cloudflare Worker for edge performance and reliability.",
-    "link": null,
-    "image": null,
-    "tags": ["Cloudflare Workers", "TypeScript"]
-  },
-  {
-    "id": 5,
-    "title": "TA-Roster",
-    "description": "Automated TA duty roster parser. Downloads Excel rosters from SharePoint using Selenium, parses to structured JSON, and maintains a rolling 5-week history with GitHub Actions automation.",
-    "link": null,
-    "image": null,
-    "tags": ["JavaScript", "Selenium", "GitHub Actions"]
-  },
-  {
-    "id": 6,
-    "title": "Redir (discontinued)",
-    "description": "Link shortener project created as a secret gift for a coworker. Designed to work with an NFC Keychain (Ntag 216). My first exploration into Next.js!",
-    "link": null,
-    "image": null,
-    "tags": ["Next.js", "NFC"]
-  },
-  {
-    "id": 7,
-    "title": "Nowify Player",
-    "description": "Forked from Nowify — displays my current Spotify listening activity with a permanent public URL. Custom styling and always-on visibility for anyone curious about my music taste.",
-    "link": "https://np.nodr.me",
-    "image": null,
-    "tags": ["Spotify API", "JavaScript"]
-  },
-  {
-    "id": 8,
-    "title": "Discord Bots (discontinued)",
-    "description": "Various Discord bots built with JavaScript since 2022. Explored bot development, Discord.js, and server automation.",
-    "link": null,
-    "image": null,
-    "tags": ["Discord.js", "Node.js"]
-  }
+  {"name":"aether-linux","line":"Linux terminal UI and CLI for the VOICSKY PULSE 96 keyboard: lighting, remapping and a music-reactive mode.","commits":13,"share":100,"contributors":"1","url":"https://github.com/lrxrn/aether-linux","repo":"lrxrn/aether-linux","featured":true},
+  {"name":"ScanBridge","line":"Phone PWA that scans barcodes or text and sends them into Excel, Sheets and the desktop.","commits":22,"share":100,"contributors":"1","private":true,"repo":"lrxrn/scanbridge","featured":true},
+  {"name":"HR Portal","line":"HR system for the TA programme: rosters, approvals, recruitment, attendance and payroll.","commits":854,"share":43,"contributors":"6","private":true,"repo":"TA-Software/hr-portal","featured":true},
+  {"name":"Arux","line":"Discord bot for the Software FU on Cloudflare Workers, with moderation, role permissions and webhook notifications.","commits":123,"share":100,"contributors":"1","private":true,"url":"https://arux.lrxrn.dev","repo":"lrxrn/Arux","featured":true},
+  {"name":"TA Card","line":"Unofficial design concept for the APU Technical Assistant ID card, with a builder, mockups and sizing guidelines.","commits":5,"share":100,"contributors":"1","private":true,"url":"https://card.lrxrn.dev","repo":"lrxrn/ta-card","featured":true},
+  {"name":"NODR","line":"Network for Optimized Digital Resources: a platform for APU Technical Assistants with a duty email generator, shift finder and mini tools, plus its Cloudflare Worker API. Being replaced by HR Portal.","url":"https://nodr.me","featured":true},
+  {"name":"LabMonit","line":"Live dashboard of online lab PCs per lab.","commits":70,"share":100,"contributors":"1","private":true,"repo":"TA-Softies/LabMonit"},
+  {"name":"enroll","line":"One-line PowerShell command that registers a Windows device in Intune Autopilot, served by a Cloudflare Worker.","commits":16,"share":100,"contributors":"1","private":true,"repo":"lrxrn/enroll"},
+  {"name":"SnipeIT Kiosk","line":"Kiosk for Snipe-IT asset tracking.","commits":85,"share":90,"contributors":"2","private":true,"repo":"TA-Software/snipeit-kiosk"},
+  {"name":"Portfolio","line":"This website: Svelte, Vite and asciify.","commits":15,"url":"https://lrxrn.dev"},
+  {"name":"POS","line":"Point-of-sale system built with Next.js and TypeScript for a relative’s retail business."},
+  {"name":"TA Portal","line":"Internal portal for day-to-day Technical Assistant operations.","commits":200,"share":20,"contributors":"20+","private":true,"repo":"TA-Software/ta-portal"},
+  {"name":"wallflare","line":"Tiny Cloudflare Worker in front of an R2 bucket that gives images long-lived, cache-busting URLs.","commits":4,"share":100,"contributors":"1","private":true,"hidden":true,"repo":"TA-Softies/wallflare"}
 ]

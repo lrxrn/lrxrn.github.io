@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meesum · A flood</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* A: accent flood. Light = orange page, dark = near-black with orange accent. */
+:root { --bg:#FF5A1F; --fg:#1A1A18; --muted:rgba(26,26,24,.66); --line:rgba(26,26,24,.22); --accent:#1A1A18; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) { --bg:#0B0B0C; --fg:#EDEDEA; --muted:#A1A19B; --line:#2A2A2C; --accent:#FF5A1F; } }
+:root[data-theme=dark] { --bg:#0B0B0C; --fg:#EDEDEA; --muted:#A1A19B; --line:#2A2A2C; --accent:#FF5A1F; }
+</style></head>
+<body><main id="app"></main><script src="common.js"></script></body></html>

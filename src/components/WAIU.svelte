@@ -378,43 +378,17 @@
     opacity: 0.7;
   }
 
-  /* Dark mode */
-  :global(:not(.light)) .waiu-pill {
-    background: rgba(0, 0, 0, 0.8);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
+  /* Palette tokens follow the theme on their own */
+  .waiu-pill {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    color: var(--fg);
   }
-  :global(:not(.light)) .waiu-pill.compact {
-    background: rgba(0, 0, 0, 0.6);
-    border-color: rgba(255, 255, 255, 0.05);
-  }
-  :global(:not(.light)) .progress-track { stroke: rgba(255, 255, 255, 0.1); }
-  :global(:not(.light)) .progress-bar {
-    stroke: #fa2d48;
-    filter: drop-shadow(0 0 6px rgba(250, 45, 72, 0.5));
-  }
-  :global(:not(.light)) .extra-badge {
-    background: rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  /* Light mode */
-  :global(.light) .waiu-pill {
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid rgba(0, 0, 0, 0.1);
-    color: black;
-  }
-  :global(.light) .waiu-pill.compact {
-    background: rgba(255, 255, 255, 0.7);
-  }
-  :global(.light) .progress-track { stroke: rgba(0, 0, 0, 0.1); }
-  :global(.light) .progress-bar {
-    stroke: #fa2d48;
-    filter: drop-shadow(0 0 4px rgba(250, 45, 72, 0.4));
-  }
-  :global(.light) .extra-badge {
-    background: rgba(0, 0, 0, 0.08);
-    color: rgba(0, 0, 0, 0.6);
+  .progress-track { stroke: var(--line); }
+  .progress-bar { stroke: var(--coral); }
+  .extra-badge {
+    background: var(--coral-soft);
+    color: var(--coral-text);
   }
 
   .progress-bar { transition: stroke-dashoffset 0.3s linear; }

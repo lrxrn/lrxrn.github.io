@@ -1,0 +1,266 @@
+[
+  {
+    "name": "ta-card",
+    "line": "Concept for the APU Technical Assistant ID card",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "name": "scanbridge",
+    "line": "Phone-to-desktop scanner relay on Cloudflare",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "name": "timetable",
+    "line": "Class timetable app",
+    "year": 2026,
+    "featured": true
+  },
+  {
+    "name": "enroll",
+    "line": "PowerShell tooling",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "scheduleDB",
+    "line": "Schedule data",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "Arux",
+    "line": "JavaScript project",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "dotfiles",
+    "line": "My setup",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "aether-linux",
+    "line": "Linux TUI for the VOICSKY PULSE 96 keyboard",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "TA-Roster",
+    "line": "TA duty roster parser",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "tasw-api",
+    "line": "TA API",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "holhuashi",
+    "line": "Anonymous message board for Maldivians",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "APSearch-API",
+    "line": "Search API",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "coral-pos",
+    "line": "Point of sale",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "ta-tools-api",
+    "line": "API for TA tools",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "hr-portal",
+    "line": "HR portal",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "Trace",
+    "line": "Spending tracker and bill splitter",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "tools",
+    "line": "Small web tools",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "QC-Toolbox",
+    "line": "QC helpers",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "auth",
+    "line": "Auth service",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "lrxrn.github.io",
+    "line": "This site",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "Spy",
+    "line": "Svelte app",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "TA-Creds",
+    "line": "TA credentials app",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "waiu",
+    "line": "Live status worker",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "ta-tools",
+    "line": "Tools for Technical Assistants",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "apu_smartpark",
+    "line": "Flutter parking app",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "TA-Graveyard",
+    "line": "Retired TA projects",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "dep-trkr",
+    "line": "Tracker",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "hr-portal-legacy",
+    "line": "Earlier HR portal",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "APUSchedule",
+    "line": "Schedule tool",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "FDD",
+    "line": "Assignment site",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "np",
+    "line": "Now playing player",
+    "year": 2026,
+    "featured": false
+  },
+  {
+    "name": "pos",
+    "line": "Retail point of sale",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "link-redirector-main",
+    "line": "NFC link redirector",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "OODJ",
+    "line": "Java coursework",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "Nowify",
+    "line": "Spotify now playing",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "SWScripts",
+    "line": "PowerShell scripts",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "Minot",
+    "line": "CSS experiment",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "mapcolata",
+    "line": "Map project",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "pfiswe",
+    "line": "JavaScript project",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "apu-schedule",
+    "line": "Schedule tool",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "rounding-analysis",
+    "line": "Python analysis",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "auto-attendix",
+    "line": "Attendance automation",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "IOOP",
+    "line": "C# coursework",
+    "year": 2025,
+    "featured": false
+  },
+  {
+    "name": "mini-project",
+    "line": "PowerShell mini project",
+    "year": 2025,
+    "featured": false
+  }
+]

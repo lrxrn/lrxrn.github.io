@@ -1,3 +1,4 @@
+import '@fontsource-variable/lexend'
 import './styles/global.css'
 import App from './App.svelte'
 import { mount } from 'svelte'

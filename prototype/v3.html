@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meesum · Paper</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* C: paper. Huge name, quiet everything else, accent only as an underline and the button hover. */
+:root { --bg:#FBFBF9; --fg:#1A1A18; --muted:#6B6B66; --line:#E3E3DE; --accent:#FF5A1F; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) { --bg:#0B0B0C; --fg:#EDEDEA; --muted:#A1A19B; --line:#2A2A2C; } }
+:root[data-theme=dark] { --bg:#0B0B0C; --fg:#EDEDEA; --muted:#A1A19B; --line:#2A2A2C; }
+#app { padding-top: 96px; }
+h1 { font-size: clamp(56px, 18vw, 128px); line-height: .95; letter-spacing: -.05em; font-weight: 600; }
+h1::after { content: "."; color: var(--accent); }
+.bio { font-weight: 300; }
+.stack ul { gap: 4px 0; } .stack li:not(:last-child)::after { content: ","; margin-right: .4em; }
+.stack { border: 0; padding: 4px 0; }
+.btn:hover { background: var(--accent); color: #1A1A18; }
+.all .row b { font-family: var(--sans); font-size: 14px; }
+</style></head>
+<body><main id="app"></main><script src="common.js"></script></body></html>

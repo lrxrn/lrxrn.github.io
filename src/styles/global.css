@@ -1,84 +1,91 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
+/* Palette: paper + ink, violet (primary) and coral (now / active). Flat colours only. */
+:root {
+  --bg: #FAF9FC; --surface: rgba(250, 249, 252, .82); --line: #E2DFEC; --fg: #17151F; --muted: #6A6678;
+  --violet: #6B46F5; --coral: #E8454F; --coral-text: #B8283A; --coral-soft: rgba(232, 69, 79, .1);
+  --on-violet: #fff; --iris: #4F5BD5; --teal: #0E9F8E;
+  --ascii-ink: color-mix(in oklab, var(--violet) 75%, var(--bg));
+  --sea-opacity: .95; --glass: 30%; /* light needs a stronger sea and a thinner glass */
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --sans: "Lexend Variable", "Lexend", ui-sans-serif, system-ui, sans-serif;
+  --mono: ui-monospace, "SF Mono", Consolas, monospace;
+  color-scheme: light;
 }
-
-/* Dark mode (default) */
-body {
-  @apply bg-black text-white font-sans antialiased;
-  overflow-x: hidden;
-  transition: background-color 0.3s ease, color 0.3s ease;
+:root[data-theme=dark] {
+  --bg: #0D0B14; --surface: rgba(13, 11, 20, .82); --line: #2A2538; --fg: #EEEBF7; --muted: #A29DB5;
+  --violet: #9B84FF; --coral: #FF7A82; --coral-text: #FF8F96; --coral-soft: rgba(255, 122, 130, .12);
+  --on-violet: #0D0B14; --iris: #8C96FF; --teal: #3CCFBD; --sea-opacity: .45; --glass: 58%;
+  color-scheme: dark;
 }
-
-/* Light mode */
-html.light body {
-  @apply bg-white text-black;
-}
-
-/* Custom scrollbar - Dark mode */
-::-webkit-scrollbar {
-  width: 8px;
-}
-
-::-webkit-scrollbar-track {
-  @apply bg-black;
-}
-
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-700 rounded-full;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-600;
-}
-
-/* Light mode scrollbar */
-html.light ::-webkit-scrollbar-track {
-  @apply bg-white;
-}
-
-html.light ::-webkit-scrollbar-thumb {
-  @apply bg-gray-300;
-}
-
-html.light ::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400;
-}
-
-/* Selection - Dark mode */
-::selection {
-  @apply bg-red-500/30 text-white;
-}
-
-/* Selection - Light mode */
-html.light ::selection {
-  @apply bg-red-500/30 text-black;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { 
-    opacity: 0; 
-    transform: translateY(20px); 
-  }
-  to { 
-    opacity: 1; 
-    transform: translateY(0); 
+/* before the theme store runs, or with scripting off */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --bg: #0D0B14; --surface: rgba(13, 11, 20, .82); --line: #2A2538; --fg: #EEEBF7; --muted: #A29DB5;
+    --violet: #9B84FF; --coral: #FF7A82; --coral-text: #FF8F96; --coral-soft: rgba(255, 122, 130, .12);
+    --on-violet: #0D0B14; --iris: #8C96FF; --teal: #3CCFBD; --sea-opacity: .45; --glass: 58%; color-scheme: dark;
   }
 }
 
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
+* { box-sizing: border-box; margin: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.55 var(--sans); -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 1px; transition: color 120ms ease; }
+a:hover { color: var(--violet); }
+:focus-visible { outline: 2px solid var(--violet); outline-offset: 2px; }
+::selection { background: color-mix(in srgb, var(--violet) 30%, transparent); }
+
+main { max-width: 640px; margin: 0 auto; padding: 112px 24px 72px; display: grid; gap: 88px; position: relative; isolation: isolate; }
+/* aquarium glass: the whole page is frosted over the sea so text stays readable; "peek" lifts it */
+main::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: color-mix(in srgb, var(--bg) var(--glass), transparent);
+  -webkit-backdrop-filter: blur(9px) saturate(1.15); backdrop-filter: blur(9px) saturate(1.15);
+  transition: opacity 240ms var(--ease-out); }
+html.peek main::before { opacity: 0; }
+html.peek main > section, html.peek header h1, html.peek header p { opacity: .06 !important; transition: opacity 240ms var(--ease-out); }
+html.peek main > section *, html.peek header h1, html.peek header p { pointer-events: none !important; }
+@media (max-width: 640px) { main { padding: 88px 20px 48px; gap: 64px; } }
+
+/* rows shared by work, experience and education */
+.row { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-top: 1px solid var(--line); text-decoration: none; min-height: 44px; transition: transform 120ms var(--ease-out); }
+a.row:hover { color: inherit; } a.row:active { transform: scale(.97); }
+.row b { font-weight: 500; display: block; }
+.row span { font-size: 14px; color: var(--muted); }
+.row i { font: normal 13px/1.9 var(--mono); color: var(--muted); white-space: nowrap; text-align: right; }
+.row i small { display: block; font-size: 12px; line-height: 1.4; }
+.badge { font: normal 12px/1 var(--mono); padding: 4px 8px; border-radius: 999px; background: var(--coral-soft); color: var(--coral-text); margin-left: 4px; }
+.badge.on { background: var(--coral); color: var(--bg); }
+.tag { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.arrow { opacity: 0; transition: opacity 160ms var(--ease-out), transform 160ms var(--ease-out); }
+@media (hover: hover) and (pointer: fine) { a.row:hover .arrow { opacity: 1; transform: translateX(2px); } }
+.org { font: 13px/1.5 var(--mono); color: var(--muted); margin: 0 0 8px; }
+@media (max-width: 640px) {
+  .row { flex-wrap: wrap; gap: 0 16px; }
+  .row i { width: 100%; order: 3; text-align: left; line-height: 1.5; }
 }
 
-.animate-slide-up {
-  animation: slideUp 0.5s ease-out forwards;
+.reveal { opacity: 0; transform: translateY(8px); animation: in 240ms var(--ease-out) forwards; animation-delay: calc(var(--i) * 40ms); }
+@keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { transform: none; animation-name: fade; }
+  a.row, .arrow { transform: none !important; }
 }
+
+.skip { position: fixed; top: 8px; left: 8px; z-index: 20; padding: 10px 16px; border-radius: 999px; background: var(--violet); color: var(--on-violet); font-size: 14px; text-decoration: none; transform: translateY(-200%); }
+.skip:focus { transform: none; }
+main:focus { outline: none; }
+
+/* print: a one-page CV, no effects */
+@media print {
+  :root, :root[data-theme=dark] { --bg: #fff; --fg: #000; --muted: #444; --line: #ccc; --violet: #000; --coral-text: #000; --coral-soft: transparent; }
+  body { background: #fff; }
+  main::before { display: none; }
+  .skip, #waiu, footer, canvas, [aria-hidden=true]:not(h1 *) { display: none !important; }
+  main { padding: 0; gap: 24px; max-width: none; }
+  .reveal { opacity: 1; transform: none; animation: none; }
+  .row { break-inside: avoid; }
+  a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 11px; color: #444; }
+}
+
+/* Let the pointer reach the ocean through empty space; text, links and controls still take it. */
+main { pointer-events: none; }
+main :is(h1, h2, p, a, button, summary, details, ul, pre, .row, .stack, .sea) { pointer-events: auto !important; } /* !important: components use `all: unset`, which would inherit none */

@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Meesum · Spec sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="base.css">
+<style>
+/* B: spec sheet. Dark, labels in a left rail on desktop, stacked on mobile. Accent on dots only. */
+:root { --bg:#0B0B0C; --fg:#EDEDEA; --muted:#A1A19B; --line:#2A2A2C; --accent:#FF5A1F; }
+:root[data-theme=light] { --bg:#FBFBF9; --fg:#1A1A18; --muted:#6B6B66; --line:#E3E3DE; --accent:#E8470F; }
+#app { max-width: 880px; gap: 0; }
+#app > section, #app > header { display: grid; grid-template-columns: 160px 1fr; gap: 0 24px; padding: 32px 0; border-top: 1px solid var(--line); }
+#app > header { border-top: 0; padding-top: 0; display: block; }
+#app > footer { padding-top: 32px; border-top: 1px solid var(--line); }
+.label { margin: 0; padding-top: 12px; }
+.label::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); margin-right: 8px; }
+section > :not(.label) { grid-column: 2; }
+.row:first-of-type, .stack:first-of-type { border-top: 0; }
+@media (max-width: 640px) {
+  #app > section { display: block; padding: 24px 0; }
+  .label { padding: 0 0 8px; }
+}
+</style></head>
+<body><main id="app"></main><script src="common.js"></script></body></html>

@@ -18,7 +18,7 @@ if (typeof window !== 'undefined') {
   
   theme.subscribe(value => {
     localStorage.setItem('theme', value);
-    document.documentElement.classList.toggle('light', value === 'light');
+    document.documentElement.dataset.theme = value;
   });
 }
 
