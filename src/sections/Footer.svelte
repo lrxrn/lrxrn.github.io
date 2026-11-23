@@ -44,7 +44,7 @@
       {#if extra.length}<button type="button" class="clear" onclick={clear}>clear {extra.length}</button>{/if}
     </div>
   </details>
-  <span>© {new Date().getFullYear()} Meesum</span>
+  <span>© {new Date().getFullYear()} lrxrn (Meesum Ahmed) · <a href="/privacy/">Privacy</a></span>
   <button class="theme" onclick={flip} aria-label="Toggle theme">◐</button>
 </footer>
 

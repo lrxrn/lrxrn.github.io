@@ -41,3 +41,7 @@ Site URL is `https://lrxrn.dev`. Canonical, OG, JSON-LD, `public/sitemap.xml`, `
 - Short, simple commit messages and PR descriptions. No em dashes.
 - `dist/` and `node_modules/` are ignored. `prototype/` is design scratch space, not part of the build.
 - Two untracked user files in `src/components/AnimatedIcons/` (`sparkles.svelte`, `sword.svelte`) are not used; leave them alone.
+
+## Privacy
+
+`privacy/index.html` is the privacy page (static HTML, styled by `src/privacy.js`). It names Cloudflare Web Analytics (token in the three HTML entries) and states nothing identifying is collected. **If you add analytics, a cookie, a form or any new third party, update that page first** (name the tool, say what it collects) and keep it cookieless so no consent banner is needed.

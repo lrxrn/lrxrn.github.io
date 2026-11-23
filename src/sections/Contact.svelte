@@ -31,9 +31,9 @@
     <span class="sr" aria-live="polite">{copied ? 'Email copied' : ''}</span>
   </div>
   <p class="elsewhere">
-    <a class="tip" data-tip="lrxrn" aria-label="GitHub, lrxrn" href="https://github.com/lrxrn">GitHub</a> ·
-    <a class="tip" data-tip="meesum-ahmed" aria-label="LinkedIn, meesum-ahmed" href="https://linkedin.com/in/meesum-ahmed">LinkedIn</a> ·
-    <a class="tip" data-tip="m13kx" aria-label="Discord, m13kx" href="https://discord.com/users/375599041284669452">Discord</a>
+    <a class="tip" data-tip="lrxrn" aria-label="GitHub, lrxrn" target="_blank" rel="noopener noreferrer" href="https://github.com/lrxrn">GitHub</a> ·
+    <a class="tip" data-tip="meesum-ahmed" aria-label="LinkedIn, meesum-ahmed" target="_blank" rel="noopener noreferrer" href="https://linkedin.com/in/meesum-ahmed">LinkedIn</a> ·
+    <a class="tip" data-tip="m13kx" aria-label="Discord, m13kx" target="_blank" rel="noopener noreferrer" href="https://discord.com/users/375599041284669452">Discord</a>
   </p>
 </section>
 

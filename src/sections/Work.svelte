@@ -20,7 +20,7 @@
 </script>
 
 {#snippet row(p, small)}
-  <svelte:element this={p.url ? 'a' : 'div'} class="row" href={p.url} title={tip(p)}>
+  <svelte:element this={p.url ? 'a' : 'div'} class="row" href={p.url} target={p.url ? "_blank" : undefined} rel={p.url ? "noopener noreferrer" : undefined} title={tip(p)}>
     {#if small}
       <b>{p.name}</b><span>{p.line}</span>
     {:else}

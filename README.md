@@ -38,7 +38,7 @@ Project rules:
 ## How it is built
 
 ```
-index.html, 404.html      entries (meta, JSON-LD, noscript fallback) ; 404 is a second Vite input
+index.html, 404.html      entries (meta, JSON-LD, noscript fallback) ; 404 and privacy/index.html are extra Vite inputs
 src/main.js               mounts App.svelte
 src/App.svelte            skip link, ocean, WAIU pill, then the sections
 src/sections/             Hero, Stack, Work, Experience, Education, Contact, Footer
@@ -49,6 +49,7 @@ src/styles/global.css     palette tokens, base, shared row/badge classes, glass,
 src/notfound.js           404 page (asciify notFound field)
 scripts/update-commits.mjs  npm run stats
 public/                   favicons, og.png, robots.txt, sitemap.xml, llms.txt
+privacy/index.html        privacy page (static; keep in sync with any analytics or third party)
 prototype/                design prototypes (not part of the build)
 ```
 
