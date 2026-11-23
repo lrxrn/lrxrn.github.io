@@ -44,4 +44,4 @@ Site URL is `https://lrxrn.dev`. Canonical, OG, JSON-LD, `public/sitemap.xml`, `
 
 ## Privacy
 
-`privacy/index.html` is the privacy page (static HTML, styled by `src/privacy.js`). It names Cloudflare Web Analytics (token in the three HTML entries) and states nothing identifying is collected. **If you add analytics, a cookie, a form or any new third party, update that page first** (name the tool, say what it collects) and keep it cookieless so no consent banner is needed.
+`privacy/index.html` is the privacy page (static HTML, styled by `src/privacy.js`). It names Cloudflare Web Analytics (injected automatically by Cloudflare at the edge, EU visitors excluded; there is no snippet in the repo) and states nothing identifying is collected. **If you add analytics, a cookie, a form or any new third party, update that page first** (name the tool, say what it collects) and keep it cookieless so no consent banner is needed.
