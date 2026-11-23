@@ -26,13 +26,13 @@ Everything on the page comes from JSON in `src/data/`.
 | `experience.json` | Experience section | `role`, `org`, `type`, `start` (`YYYY-MM`), `end` (`YYYY-MM` or `null` = current, shows a coral "Present" badge). Durations are computed. |
 | `education.json` | Education section | `degree`, `school`, `start`, `end` (years), `active: true` shows a coral "Year N" badge. |
 | `stack.json` | Stack pills | Groups of `{ name, color }`; `color` is the brand hex used for the pill. |
-| `projects.json` | Work section | `name`, `line`, `commits`, `share`, `contributors`, `repo`, `url`, `featured`, `hidden`. |
+| `projects.json` | Work section | `name`, `line`, `commits`, `share`, `contributors`, `languages` (top 3, `{ name, pct }`), `repo`, `langRepo`, `url`, `featured`, `hidden`. |
 
 Project rules:
 
 - **Rotation:** 3 random projects with `featured: true` show on every load; everything else sits under "All N projects".
 - **Links:** set `url` only for things visitors can open. No `url` means a plain row.
-- **Commit counts:** shown rounded down with a `+` (854 shows as `850+`). `npm run stats` refreshes `commits`, `share` and `contributors` for entries that have a `repo` (needs `gh` signed in).
+- **Commit counts:** shown rounded down with a `+` (854 shows as `850+`). `npm run stats` refreshes `commits`, `share`, `contributors` and the top 3 `languages` for entries that have a `repo` (or a `langRepo` for languages only) (needs `gh` signed in).
 - **Hidden:** `hidden: true` removes a project everywhere.
 
 ## How it is built
