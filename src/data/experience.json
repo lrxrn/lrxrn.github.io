@@ -1,7 +1,7 @@
 [
-  { "role": "TA Software Functional Unit Head", "org": "Asia Pacific University of Technology and Innovation", "type": "Part-time", "start": "2026-05", "end": null },
-  { "role": "Intune Application Administrator", "org": "Asia Pacific University of Technology and Innovation", "type": "Internship", "start": "2026-04", "end": "2026-08" },
-  { "role": "TA Software Functional Unit Member", "org": "Asia Pacific University of Technology and Innovation", "type": "Part-time", "start": "2025-06", "end": null },
-  { "role": "Technical Assistant", "org": "Asia Pacific University of Technology and Innovation", "type": "Part-time", "start": "2024-12", "end": null },
-  { "role": "Technical Assistant Trainee", "org": "Asia Pacific University of Technology and Innovation", "type": "Part-time", "start": "2024-10", "end": "2024-12" }
+  {"role":"TA Software Functional Unit Head","org":"Asia Pacific University of Technology and Innovation","type":"Student Helper","start":"2026-05","end":"2026-10"},
+  {"role":"Intune Application Administrator","org":"Asia Pacific University of Technology and Innovation","type":"Internship","start":"2026-04","end":"2026-08"},
+  {"role":"TA Software Functional Unit Member","org":"Asia Pacific University of Technology and Innovation","type":"Student Helper","start":"2025-05","end":"2026-05"},
+  {"role":"Technical Assistant","org":"Asia Pacific University of Technology and Innovation","type":"Student Helper","start":"2024-12","end":null},
+  {"role":"Technical Assistant Trainee","org":"Asia Pacific University of Technology and Innovation","type":"Student Helper Trainee","start":"2024-10","end":"2024-12"}
 ]

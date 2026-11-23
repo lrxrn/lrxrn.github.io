@@ -1,8 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
   import { toggleTheme } from '../stores/theme.js';
   import { sea } from '../stores/sea.js';
-  import { kit } from '../lib/asciify.js';
 
   const MAX = 8; // extra creatures, so it stays a sea
   const kinds = [
@@ -12,15 +10,13 @@
     { kind: 'hammerhead', color: 'var(--violet)' },
   ];
 
-  let page, extra = $state([]);
-  onMount(() => {
-    let dead = false;
-    kit().then(({ pageDissolve }) => { if (!dead) page = pageDissolve(document.body); }).catch(() => {});
-    return () => { dead = true; page?.destroy(); };
-  });
+  let extra = $state([]);
 
-  // the theme change dissolves outward from the button; without the engine it just switches
-  const flip = e => (page ? page.swap(toggleTheme, e.currentTarget) : toggleTheme());
+  // native view transition crossfades the theme (cheap on phones); asciify pageDissolve cost 500ms+ long tasks at 4x CPU
+  const flip = () => {
+    if (!document.startViewTransition || matchMedia('(prefers-reduced-motion: reduce)').matches) return toggleTheme();
+    document.startViewTransition(toggleTheme);
+  };
 
   function add(kind) {
     if (!$sea || extra.length >= MAX) return;

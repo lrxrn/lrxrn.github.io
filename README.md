@@ -70,7 +70,7 @@ All asciify calls go through `src/lib/asciify.js` (a lazy `import()` after first
 | Section titles | `decode` on scroll |
 | Email button | `beam` |
 | Contact | (the email button uses `beam`; no orb) |
-| Theme toggle | `pageDissolve` |
+| Theme toggle | native View Transitions crossfade (asciify `pageDissolve` was too heavy on phones) |
 | 404 | `fieldBackground` `notFound` |
 
 ### Name swap

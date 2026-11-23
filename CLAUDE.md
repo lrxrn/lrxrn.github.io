@@ -25,6 +25,7 @@ Personal portfolio (Svelte 5 + Vite 6 + asciify-engine). Read `README.md` for th
 - Call `destroy()` in `onMount` cleanup, and guard with a `dead` flag for the async import.
 - The ocean host (`AsciiBackground.svelte`) takes the pointer; `main` is `pointer-events: none` and interactive elements opt back in in `global.css`. If you add a new interactive element inside `main`, add it to that `:is(...)` list.
 - `pill` is not used any more (its glyph dot nudged chips out of line); the sea chips are plain buttons.
+- Do not use `pageDissolve` for the theme switch: it caused 500ms+ long tasks on throttled mobile. The footer uses `document.startViewTransition`.
 - `decode` cannot re-target text it has already drawn, so the name swap uses its own scramble in `NameSwap.svelte`.
 - Docs: https://asciify.org/llms.txt (kit reference at `/skill/references/kit.md`). Tested against 4.33.0; check the installed version's exports before using newer options.
 
