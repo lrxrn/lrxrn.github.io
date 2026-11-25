@@ -42,7 +42,7 @@ index.html, 404.html      entries (meta, JSON-LD, noscript fallback) ; 404 and p
 src/main.js               mounts App.svelte
 src/App.svelte            skip link, ocean, WAIU pill, then the sections
 src/sections/             Hero, Stack, Work, Experience, Education, Contact, Footer
-src/components/           AsciiBackground (ocean), NameSwap, SectionTitle, WAIU
+src/components/           AsciiBackground (ocean), NameSwap, Nudge, SectionTitle, Shark, WAIU
 src/stores/               theme (data-theme on <html>), sea (live ocean handle)
 src/lib/                  asciify.js (lazy loader), duration.js (+ test)
 src/styles/global.css     palette tokens, base, shared row/badge classes, glass, print

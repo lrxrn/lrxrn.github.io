@@ -40,6 +40,7 @@ main::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
   -webkit-backdrop-filter: blur(9px) saturate(1.15); backdrop-filter: blur(9px) saturate(1.15);
   transition: opacity 240ms var(--ease-out); }
 html.peek main::before { opacity: 0; }
+html.peek main { padding-bottom: 112px; } /* room under the floating peek button */
 html.peek main > section, html.peek header h1, html.peek header p { opacity: .06 !important; transition: opacity 240ms var(--ease-out); }
 html.peek main > section *, html.peek header h1, html.peek header p { pointer-events: none !important; }
 @media (max-width: 640px) { main { padding: 88px 20px 48px; gap: 64px; } }
