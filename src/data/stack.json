@@ -19,6 +19,8 @@
     { "name": "Django", "color": "#44B78B" }, { "name": "Hono", "color": "#E36002" },
     { "name": "Astro", "color": "#BC52EE" }, { "name": "Firebase", "color": "#FFA000" },
     { "name": "Docker", "color": "#2496ED" }, { "name": "GitHub Actions", "color": "#2088FF" },
-    { "name": "Entra ID", "color": "#0078D4" }, { "name": "Power Automate", "color": "#0066FF" }
+    { "name": "Entra ID", "color": "#0078D4" }, { "name": "Power Automate", "color": "#0066FF" },
+    { "name": "Intune", "color": "#00A4EF" }, { "name": "Azure", "color": "#0089D6" },
+    { "name": "Hetzner", "color": "#D50C2D" }
   ] }
 ]
