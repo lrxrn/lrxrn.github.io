@@ -1,7 +1,9 @@
 <script>
   import { onMount, onDestroy, tick } from 'svelte';
+  import { status } from '../stores/status.js';
 
-  const WS_URL = 'wss://waiu.lrxrn.workers.dev/ws';
+  const ORIGIN = 'waiu.lrxrn.workers.dev';
+  const WS_URL = `wss://${ORIGIN}/ws`;
 
   const ICONS = {
     scheduled: `<rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>`,
@@ -27,9 +29,15 @@
 
   let primary = $derived(activities[0] ?? null);
   let extraCount = $derived(Math.max(0, activities.length - 1));
-
-  // music reads as the song, with the artist above it
-  const isSong = a => a.source === 'lanyard' && /spotify|apple music/i.test(a.name ?? '') && !!a.details;
+  let isMusic = $derived(primary?.source === 'lanyard' && /spotify|apple music/i.test(primary.name ?? '') && !!primary.details);
+  let brokenArt = $state(null);
+  // art is only ever loaded from the worker's own proxy
+  let art = $derived(isMusic && primary.art?.startsWith('/art?') && primary.art !== brokenArt ? `https://${ORIGIN}${primary.art}` : null);
+  let range = $derived(
+    primary?.source === 'waiu' ? [Date.parse(primary.timestart), Date.parse(primary.end)]
+    : isMusic && primary.end > primary.start ? [primary.start, primary.end]
+    : null
+  );
 
   function formatTime(isoString) {
     if (!isoString) return '';
@@ -39,7 +47,7 @@
   function getPrimaryText(activity) {
     if (!activity) return '';
     if (activity.source === 'waiu') return 'Scheduled';
-    if (isSong(activity)) return activity.details;
+    if (isMusic) return activity.details;
     return activity.name ?? '';
   }
 
@@ -48,7 +56,7 @@
     if (activity.source === 'waiu') {
       return `${formatTime(activity.timestart)} – ${formatTime(activity.end)}`;
     }
-    if (isSong(activity)) return activity.state ?? '';
+    if (isMusic) return activity.state ?? '';
     const parts = [activity.details, activity.state].filter(Boolean);
     return parts.join(' · ') || '';
   }
@@ -73,12 +81,11 @@
   }
 
   function updateProgress() {
-    if (!primary || primary.source !== 'waiu') {
+    if (!range) {
       animationFrame = null;
       return;
     }
-    const start = new Date(primary.timestart).getTime();
-    const end = new Date(primary.end).getTime();
+    const [start, end] = range;
     const now = Date.now();
     progress = Math.min(Math.max((now - start) / (end - start) * 100, 0), 100);
     if (progress < 100) {
@@ -98,6 +105,7 @@
     socket.onmessage = (event) => {
       const msg = JSON.parse(event.data);
       if (msg.type !== 'update') return;
+      status.set(msg.data.discord_status);
 
       const newActivities = msg.data.current ?? [];
 
@@ -127,6 +135,7 @@
     };
 
     socket.onclose = () => {
+      status.set(null);
       setTimeout(connect, 3000);
     };
 
@@ -163,24 +172,28 @@
     <div
       class="waiu-pill"
       class:compact={isCompact}
+      class:music={isMusic}
       onclick={toggleCompact}
       role="button"
       tabindex="0"
       onkeydown={(e) => { if (e.key === 'Enter' || e.key === ' ') toggleCompact(); }}
     >
-      {#if primary.source === 'waiu'}
-        <svg class="progress-ring-svg" preserveAspectRatio="none">
-          <rect x="0" y="0" width="100%" height="100%" rx="26" ry="26"
-            fill="none" stroke-width="2" class="progress-track"
-            vector-effect="non-scaling-stroke"/>
-          <rect x="0" y="0" width="100%" height="100%" rx="26" ry="26"
-            fill="none" stroke-width="2" class="progress-bar"
-            vector-effect="non-scaling-stroke"
+      {#if art}
+        <div class="art-bg" aria-hidden="true"><img src={art} alt="" /></div>
+      {/if}
+
+      {#if range}
+        <svg class="progress-ring-svg" aria-hidden="true">
+          <rect width="100%" height="100%" rx={isMusic ? 27 : 23} class="progress-track"/>
+          <rect width="100%" height="100%" rx={isMusic ? 27 : 23} class="progress-bar"
             pathLength="100" stroke-dasharray="100"
             stroke-dashoffset={100 - progress}/>
         </svg>
       {/if}
 
+      {#if art}
+        <img class="art" src={art} alt="" onerror={() => (brokenArt = primary.art)} />
+      {:else}
       <div class="icon-container">
         <svg
           class="activity-icon"
@@ -196,6 +209,7 @@
           {@html getIcon(primary)}
         </svg>
       </div>
+      {/if}
 
       <div class="track-info" class:hidden={isCompact}>
         <div class="text-container">
@@ -282,11 +296,30 @@
     margin: 0;
   }
 
+  .waiu-pill.music { width: 280px; max-width: calc(100vw - 2rem); height: 60px; padding: 0 22px 0 9px; border-color: transparent; }
+  /* the cover's centre is the same open or collapsed, so it only scales while the pill closes around it */
+  .waiu-pill.music.compact { width: 60px; min-width: 60px; padding: 0 0 0 9px; gap: .75rem; justify-content: flex-start; }
+  .waiu-pill.music { transition: width 280ms var(--ease-out), min-width 280ms var(--ease-out), padding 280ms var(--ease-out); }
+  .art { width: 40px; height: 40px; flex: none; border-radius: 50%; object-fit: cover; }
+  .art { transition: transform 280ms var(--ease-out); }
+  .compact .art { transform: scale(1.25); } /* collapsed, the cover fills the circle inside the ring */
+  /* the cover, blurred; the wash keeps text readable over any art in both themes */
+  .art-bg { position: absolute; inset: 0; z-index: -2; border-radius: inherit; overflow: hidden; }
+  .art-bg img { position: absolute; inset: -30px; width: calc(100% + 60px); height: calc(100% + 60px); object-fit: cover; filter: blur(18px) saturate(1.6); }
+  .art-bg::after { content: ""; position: absolute; inset: 0; background: color-mix(in srgb, var(--bg) 65%, transparent); }
+  /* the text keeps its place and fades; the pill clips it */
+  .music .track-info { transition: opacity 200ms var(--ease-out) 80ms; }
+  .music .track-info.hidden { flex: 1; width: auto; padding: .15rem 0; transition: opacity 120ms var(--ease-out); }
+  .music .secondary-text { opacity: 0.9; }
+
+  @media (prefers-reduced-motion: reduce) { .waiu-pill.music, .art, .music .track-info, .music .track-info.hidden { transition: none; } }
+
+  /* the ring sits just inside the border, so the pill's clipping never cuts it */
   .progress-ring-svg {
     position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    inset: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
     pointer-events: none;
     overflow: visible;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
@@ -391,6 +424,7 @@
     border: 1px solid var(--line);
     color: var(--fg);
   }
+  .progress-ring-svg rect { fill: none; stroke-width: 3; stroke-linecap: round; }
   .progress-track { stroke: var(--line); }
   .progress-bar { stroke: var(--coral); }
   .extra-badge {

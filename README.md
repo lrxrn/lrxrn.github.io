@@ -25,7 +25,7 @@ Everything on the page comes from JSON in `src/data/`.
 | --- | --- | --- |
 | `experience.json` | Experience section | `role`, `org`, `type`, `start` (`YYYY-MM`), `end` (`YYYY-MM` or `null` = current, shows a coral "Present" badge). Durations are computed. |
 | `education.json` | Education section | `degree`, `school`, `start`, `end` (years), `active: true` shows a coral "Year N" badge. |
-| `stack.json` | Stack pills | Groups of `{ name, color }`; `color` is the brand hex used for the pill. |
+| `stack.json` | Stack pills | Groups of `{ name, color }`; `color` is the brand hex used for the pill. Pills shuffle on each load; a group longer than two rows collapses. |
 | `projects.json` | Work section | `name`, `line`, `commits`, `share`, `contributors`, `languages` (top 3, `{ name, pct }`), `repo`, `langRepo`, `url`, `featured`, `hidden`. |
 
 Project rules:
@@ -79,7 +79,7 @@ All asciify calls go through `src/lib/asciify.js` (a lazy `import()` after first
 
 ### What I'm up to (WAIU)
 
-The pill in the bottom right connects to `wss://waiu.lrxrn.workers.dev/ws` and shows the current activity or schedule. It hides itself when there is nothing live. Spotify and Apple Music show the artist above the song title.
+The pill in the bottom right connects to `wss://waiu.lrxrn.workers.dev/ws` and shows the current activity or schedule. It hides itself when there is nothing live. The same socket drives the Discord status icon after the name. Spotify and Apple Music show the song, artist, cover art and a progress ring; art comes through the worker's `/art` proxy (the `waiu` repo).
 
 ## Deploy
 

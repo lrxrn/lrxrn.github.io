@@ -1,5 +1,9 @@
 <script>
   import { onDestroy } from 'svelte';
+  import { status } from '../stores/status.js';
+
+  const STATUSES = { online: 'online', idle: 'idle', dnd: 'do not disturb', offline: 'offline' };
+  let presence = $derived(STATUSES[$status] ? $status : null); // unknown values keep the plain dot
 
   const A = 'lrxrn', B = 'Meesum', RAMP = '.:-=+*#%@';
   const reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -44,7 +48,7 @@
 <!-- svelte-ignore a11y_no_noninteractive_tabindex, a11y_no_noninteractive_element_interactions, a11y_click_events_have_key_events -->
 <h1
   tabindex="0"
-  aria-label="Meesum, also known as lrxrn"
+  aria-label="Meesum, also known as lrxrn{presence ? `. Discord status: ${STATUSES[presence]}` : ''}"
   onpointerenter={hover(enter)}
   onpointerleave={hover(leave)}
   onfocus={hover(enter)}
@@ -53,7 +57,7 @@
 >
   <span class="word" aria-hidden="true">
     <span class="sizer">{B}.</span>
-    <span class="live">{shown}<span class="dot">.</span></span>
+    <span class="live">{shown}{#if presence}<span class="status {presence}" title="Discord: {STATUSES[presence]}"></span>{:else}<span class="dot">.</span>{/if}</span>
   </span>
 </h1>
 
@@ -65,4 +69,10 @@
   .sizer { visibility: hidden; }
   .live { min-width: 0; overflow-x: clip; }
   .dot { color: var(--coral); }
+  /* Discord's shapes, so the state reads without relying on colour; sized to sit like the full stop */
+  .status { display: inline-block; position: relative; width: .2em; height: .2em; margin-left: .07em; border-radius: 50%; background: var(--online); }
+  .idle { background: var(--idle); -webkit-mask: radial-gradient(circle at 25% 25%, transparent 36%, #000 38%); mask: radial-gradient(circle at 25% 25%, transparent 36%, #000 38%); }
+  .dnd { background: var(--dnd); }
+  .dnd::after { content: ""; position: absolute; inset: 39% 18%; border-radius: 999px; background: var(--bg); }
+  .offline { background: transparent; border: .055em solid var(--offline); }
 </style>

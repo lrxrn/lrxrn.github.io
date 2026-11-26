@@ -3,6 +3,7 @@
   --bg: #FAF9FC; --surface: rgba(250, 249, 252, .82); --line: #E2DFEC; --fg: #17151F; --muted: #6A6678;
   --violet: #6B46F5; --coral: #E8454F; --coral-text: #B8283A; --coral-soft: rgba(232, 69, 79, .1);
   --on-violet: #fff; --iris: #4F5BD5; --teal: #0E9F8E;
+  --online: #23a55a; --idle: #f0b232; --dnd: #f23f43; --offline: #80848e; /* Discord's status colours */
   --ascii-ink: color-mix(in oklab, var(--violet) 75%, var(--bg));
   --sea-opacity: .95; --glass: 30%; /* light needs a stronger sea and a thinner glass */
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);

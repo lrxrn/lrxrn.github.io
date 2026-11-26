@@ -5,7 +5,8 @@
     { "name": "C#", "color": "#9B4F96" }, { "name": "C++", "color": "#00599C" },
     { "name": "Go", "color": "#00ADD8" }, { "name": "Dart", "color": "#0175C2" },
     { "name": "PowerShell", "color": "#5391FE" }, { "name": "Bash", "color": "#4EAA25" },
-    { "name": "HTML", "color": "#E34F26" }, { "name": "CSS", "color": "#1572B6" }
+    { "name": "HTML", "color": "#E34F26" }, { "name": "CSS", "color": "#1572B6" },
+    { "name": "Markdown", "color": "#8A8A8A" }
   ] },
   { "name": "Tech", "items": [
     { "name": "Svelte", "color": "#FF3E00" }, { "name": "Next.js", "color": "#8A8A8A" },
@@ -13,6 +14,11 @@
     { "name": "Tailwind", "color": "#06B6D4" }, { "name": "Flutter", "color": "#54C5F8" },
     { "name": "FastAPI", "color": "#009688" }, { "name": "Cloudflare Workers", "color": "#F38020" },
     { "name": "Supabase", "color": "#3ECF8E" }, { "name": "MySQL", "color": "#4479A1" },
-    { "name": "Git", "color": "#F05032" }
+    { "name": "Git", "color": "#F05032" },
+    { "name": "PostgreSQL", "color": "#4169E1" }, { "name": "SQLite", "color": "#0F80CC" },
+    { "name": "Django", "color": "#44B78B" }, { "name": "Hono", "color": "#E36002" },
+    { "name": "Astro", "color": "#BC52EE" }, { "name": "Firebase", "color": "#FFA000" },
+    { "name": "Docker", "color": "#2496ED" }, { "name": "GitHub Actions", "color": "#2088FF" },
+    { "name": "Entra ID", "color": "#0078D4" }, { "name": "Power Automate", "color": "#0066FF" }
   ] }
 ]
