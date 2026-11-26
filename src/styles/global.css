@@ -40,7 +40,10 @@ main::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-even
   -webkit-backdrop-filter: blur(9px) saturate(1.15); backdrop-filter: blur(9px) saturate(1.15);
   transition: opacity 240ms var(--ease-out); }
 html.peek main::before { opacity: 0; }
-html.peek main { padding-bottom: 112px; } /* room under the floating peek button */
+html.peek[data-theme] { --sea-opacity: 1; } /* nothing to read over the sea, so show it at full strength */
+/* footer docks to the bottom of the screen; the right padding leaves room for the floating peek button */
+html.peek footer { position: fixed; z-index: 14; bottom: 0; left: 0; right: 0; padding: 8px 80px calc(20px + env(safe-area-inset-bottom)) 20px; row-gap: 8px; background: var(--surface); border-top: 1px solid var(--line); }
+html.peek .waiu-wrapper { bottom: calc(var(--footer-h, 0px) + 12px); }
 html.peek main > section, html.peek header h1, html.peek header p { opacity: .06 !important; transition: opacity 240ms var(--ease-out); }
 html.peek main > section *, html.peek header h1, html.peek header p { pointer-events: none !important; }
 @media (max-width: 640px) { main { padding: 88px 20px 48px; gap: 64px; } }

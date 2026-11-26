@@ -11,6 +11,8 @@
   ];
 
   let extra = $state([]);
+  let height = $state(0); // lets the activity pill sit above the docked footer
+  $effect(() => document.documentElement.style.setProperty('--footer-h', `${height}px`));
 
   // native view transition crossfades the theme (cheap on phones); asciify pageDissolve cost 500ms+ long tasks at 4x CPU
   const flip = () => {
@@ -30,7 +32,7 @@
   }
 </script>
 
-<footer class="reveal" style="--i:6">
+<footer class="reveal" style="--i:6" bind:offsetHeight={height}>
   <details class="seabox">
     <summary>◠ sea</summary>
     <div class="chips" role="group" aria-label="Add to the background sea">
@@ -61,5 +63,8 @@
   .chips .clear { --c: var(--muted); color: var(--muted); }
   .theme { all: unset; cursor: pointer; width: 44px; height: 44px; display: grid; place-items: center; margin: -12px; }
   .theme:focus-visible { outline: 2px solid var(--violet); }
+  /* docked while peeking: sea and theme share a row, so the theme button never drops to its own line */
+  :global(html.peek) .seabox { flex: 1; }
+  :global(html.peek) footer > span { order: 1; flex-basis: 100%; }
   @media (prefers-reduced-motion: reduce) { .chips { animation: none; } .chips button:active:not(:disabled) { transform: none; } }
 </style>

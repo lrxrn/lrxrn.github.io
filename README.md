@@ -79,7 +79,7 @@ All asciify calls go through `src/lib/asciify.js` (a lazy `import()` after first
 
 ### What I'm up to (WAIU)
 
-The pill at the top connects to `wss://waiu.lrxrn.workers.dev/ws` and shows the current activity or schedule. It hides itself when there is nothing live.
+The pill in the bottom right connects to `wss://waiu.lrxrn.workers.dev/ws` and shows the current activity or schedule. It hides itself when there is nothing live. Spotify and Apple Music show the artist above the song title.
 
 ## Deploy
 

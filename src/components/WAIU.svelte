@@ -28,6 +28,9 @@
   let primary = $derived(activities[0] ?? null);
   let extraCount = $derived(Math.max(0, activities.length - 1));
 
+  // music reads as the song, with the artist above it
+  const isSong = a => a.source === 'lanyard' && /spotify|apple music/i.test(a.name ?? '') && !!a.details;
+
   function formatTime(isoString) {
     if (!isoString) return '';
     return new Date(isoString).toLocaleTimeString([], { hour: 'numeric', minute: '2-digit' });
@@ -36,6 +39,7 @@
   function getPrimaryText(activity) {
     if (!activity) return '';
     if (activity.source === 'waiu') return 'Scheduled';
+    if (isSong(activity)) return activity.details;
     return activity.name ?? '';
   }
 
@@ -44,6 +48,7 @@
     if (activity.source === 'waiu') {
       return `${formatTime(activity.timestart)} – ${formatTime(activity.end)}`;
     }
+    if (isSong(activity)) return activity.state ?? '';
     const parts = [activity.details, activity.state].filter(Boolean);
     return parts.join(' · ') || '';
   }
@@ -221,28 +226,30 @@
 <style>
   .waiu-wrapper {
     position: fixed;
-    top: 5rem;
-    left: 50%;
-    transform: translateX(-50%);
+    right: max(1rem, env(safe-area-inset-right));
+    bottom: max(1rem, env(safe-area-inset-bottom));
     z-index: 40;
     display: flex;
     justify-content: center;
     align-items: center;
-    animation: slideDown 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation: slideIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   }
+
+  /* keeps the pill off the theme toggle at the end of the page on narrow screens */
+  @media (max-width: 800px) { :global(body:has(.waiu-wrapper) footer) { padding-bottom: 64px; } }
 
   .waiu-wrapper.exiting {
-    animation: slideUp 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
+    animation: slideOut 0.4s cubic-bezier(0.7, 0, 0.84, 0) forwards;
   }
 
-  @keyframes slideDown {
-    from { opacity: 0; transform: translateX(-50%) translateY(-1.5rem); }
-    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+  @keyframes slideIn {
+    from { opacity: 0; transform: translateY(1.5rem); }
+    to { opacity: 1; transform: translateY(0); }
   }
 
-  @keyframes slideUp {
-    from { opacity: 1; transform: translateX(-50%) translateY(0); }
-    to { opacity: 0; transform: translateX(-50%) translateY(-1.5rem); }
+  @keyframes slideOut {
+    from { opacity: 1; transform: translateY(0); }
+    to { opacity: 0; transform: translateY(1.5rem); }
   }
 
   .waiu-pill {
